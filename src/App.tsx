@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./index.css";
+import React from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const shortcuts = [
+    "GitHub",
+    "ChatGPT",
+    "Conta Google",
+    "Web Store",
+    "Adicionar",
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="container">
+      <header className="top-bar">
+        <a href="#">Gmail</a>
+        <a href="#">Imagens</a>
+        <img
+          src="https://www.gstatic.com/images/branding/product/1x/avatar_circle_blue_48dp.png"
+          alt="Perfil"
+          className="profile-icon"
+        />
+      </header>
 
-export default App
+      <main>
+        <img
+          src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+          alt="Google Logo"
+          className="logo"
+        />
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Pesquise no Google ou digite um URL"
+          />
+          <div className="icons">
+            <span>🔍</span>
+            <span>🎤</span>
+            <span>📷</span>
+          </div>
+        </div>
+        <div className="shortcuts">
+          {shortcuts.map((text) => (
+            <div key={text} className="item">
+              {text}
+            </div>
+          ))}
+        </div>
+      </main>
+
+      <footer>
+        <button>Personalizar o Chrome</button>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
